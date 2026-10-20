@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rayssa Rebouças | Advocacia em Direito de Família</title>
+  <meta name="description" content="Advogada especializada em Direito de Família. Atendimento humanizado em divórcio, guarda, pensão e inventário. Fale pelo WhatsApp.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #2c2c2c;
+      background: #f7f5f2; /* Fundo claro original */
+      line-height: 1.6;
+    }
+    header {
+      background: #1a2a3a;
+      color: #fff;
+      padding: 18px 24px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    header .logo {
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    header .logo span { color: #c9a86a; }
+
+    /* Botão LinkedIn no Header (Tema Claro) */
+    .linkedin-header {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      color: #1a2a3a;
+      padding: 6px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      border: 1px solid #c9a86a;
+      transition: all 0.2s ease;
+    }
+    .linkedin-header:hover {
+      background: #0A66C2;
+      color: #fff;
+      border-color: #0A66C2;
+    }
+    .linkedin-header svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      margin-right: 6px;
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px 40px;
+    }
+    .hero-text { flex: 1 1 420px; }
+    .hero-text h1 {
+      font-size: 2.3rem;
+      color: #1a2a3a;
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+    .hero-text h1 em {
+      color: #c9a86a;
+      font-style: normal;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+      color: #444;
+    }
+    .hero-text ul {
+      list-style: none;
+      margin: 20px 0 28px;
+    }
+    .hero-text ul li {
+      padding-left: 26px;
+      position: relative;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .hero-text ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #c9a86a;
+      font-weight: bold;
+    }
+    .foto {
+      flex: 0 0 300px;
+      text-align: center;
+    }
+    .foto img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 50%;
+      border: 6px solid #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15), 0 0 0 2px #c9a86a;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 16px 32px;
+      border-radius: 50px;
+      box-shadow: 0 6px 18px rgba(37,211,102,0.4);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(37,211,102,0.5);
+    }
+    .btn-whatsapp svg { width: 24px; height: 24px; fill: #fff; }
+
+    .areas {
+      background: #fff;
+      padding: 60px 24px;
+    }
+    .areas .container { max-width: 1100px; margin: 0 auto; }
+    .areas h2 {
+      text-align: center;
+      font-size: 1.9rem;
+      color: #1a2a3a;
+      margin-bottom: 40px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: #f7f5f2;
+      padding: 28px 22px;
+      border-radius: 10px;
+      border-top: 4px solid #c9a86a;
+    }
+    .card h3 {
+      font-size: 1.15rem;
+      color: #1a2a3a;
+      margin-bottom: 10px;
+    }
+    .card p { font-size: .98rem; color: #555; }
+
+    .sobre {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      text-align: center;
+    }
+    .sobre h2 {
+      font-size: 1.9rem;
+      color: #1a2a3a;
+      margin-bottom: 20px;
+    }
+    .sobre p { color: #444; margin-bottom: 12px; font-size: 1.05rem; }
+    .sobre strong { color: #1a2a3a; }
+
+    /* Link LinkedIn na seção Sobre */
+    .linkedin-sobre {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 15px;
+      color: #c9a86a;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    .linkedin-sobre:hover {
+      color: #1a2a3a;
+      text-decoration: underline;
+    }
+    .linkedin-sobre svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      margin-right: 8px;
+    }
+
+    .cta-final {
+      background: #1a2a3a;
+      color: #fff;
+      text-align: center;
+      padding: 60px 24px;
+    }
+    .cta-final h2 {
+      font-size: 1.8rem;
+      margin-bottom: 14px;
+    }
+    .cta-final p {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #d8dce1;
+    }
+
+    footer {
+      background: #111c26;
+      color: #9aa6b2;
+      text-align: center;
+      padding: 26px 24px;
+      font-size: .85rem;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    footer strong { color: #c9a86a; }
+
+    @media (max-width: 640px) {
+      .hero-text h1 { font-size: 1.7rem; }
+      .foto img { width: 220px; height: 220px; }
+      header { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Rayssa <span>Rebouças</span> · Advocacia</div>
+    <!-- Link do LinkedIn no Header -->
+    <a href="https://www.linkedin.com/in/rayssa-rebou%C3%A7as-949396167/" target="_blank" rel="noopener" class="linkedin-header" title="Perfil no LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+      LinkedIn
+    </a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Direito de Família com <em>acolhimento</em> e técnica</h1>
+      <p>Momentos delicados exigem uma advogada que escute com atenção e defenda seus direitos com firmeza.</p>
+      <ul>
+        <li>Divórcio e dissolução de união estável</li>
+        <li>Guarda, visitas e pensão alimentícia</li>
+        <li>Inventário e partilha de bens</li>
+        <li>Atendimento humanizado e sigiloso</li>
+      </ul>
+      <a class="btn-whatsapp"
+         href="https://wa.me/5513981956857?text=Ol%C3%A1%20Dra.%20Rayssa%2C%20preciso%20de%20orienta%C3%A7%C3%A3o%20em%20Direito%20de%20Fam%C3%ADlia."
+         target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.3-4.9-4.5-.1-.2-1.2-1.6-1.2-3 0-1.4.7-2.1 1-2.4.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.8 1.9.8 2 .1.1.1.3 0 .5-.1.2-.2.3-.3.5l-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.4.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.3.1.5.2.5.3.1.2.1.7-.1 1.4Z"/></svg>
+        Falar com a advogada no WhatsApp
+      </a>
+    </div>
+
+    <div class="foto">
+      <img src="foto-rayssa.jpg"
+           alt="Advogada Rayssa Rebouças"
+           onerror="this.src='https://via.placeholder.com/300x300?text=Foto+do+Perfil'">
+    </div>
+  </section>
+
+  <section class="areas">
+    <div class="container">
+      <h2>Como posso ajudar você</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Divórcio</h3>
+          <p>Orientação e condução do processo de forma respeitosa, preservando o que é importante para você e sua família.</p>
+        </div>
+        <div class="card">
+          <h3>Guarda e Visitas</h3>
+          <p>Defesa do melhor interesse das crianças, com acordos claros e proteção do convívio familiar.</p>
+        </div>
+        <div class="card">
+          <h3>Pensão Alimentícia</h3>
+          <p>Fixação, revisão ou execução de alimentos com seriedade e compromisso com a necessidade real.</p>
+        </div>
+        <div class="card">
+          <h3>Inventário e Partilha</h3>
+          <p>Condução do inventário de forma organizada, reduzindo conflitos e preservando o patrimônio familiar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sobre">
+    <h2>Sobre a Dra. Rayssa Rebouças</h2>
+    <!-- Informações enriquecidas com dados públicos -->
+    <p><strong>Rayssa Rebouças Lima Sandim</strong> é advogada com atuação destacada na região de Santos e Cubatão (SP).</p>
+    <p>Além da advocacia, atua como <strong>2ª Secretária da Diretoria da Associação dos Advogados de Santos (AAS)</strong> no biênio 2024/2025, demonstrando seu compromisso com a classe e com a ética profissional.</p>
+    <p>Seu trabalho é pautado na escuta ativa, no sigilo e na defesa técnica dos interesses de cada cliente, tratando cada história com a seriedade e o cuidado que merece.</p>
+    
+    <!-- Link do LinkedIn na seção Sobre -->
+    <a href="https://www.linkedin.com/in/rayssa-rebou%C3%A7as-949396167/" target="_blank" rel="noopener" class="linkedin-sobre">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+      Conecte-se comigo no LinkedIn
+    </a>
+  </section>
+
+  <section class="cta-final">
+    <h2>Não enfrente este momento sozinho(a)</h2>
+    <p>Converse com a advogada e entenda seus direitos de forma clara e sem compromisso.</p>
+    <a class="btn-whatsapp"
+       href="https://wa.me/5513981956857?text=Ol%C3%A1%20Dra.%20Rayssa%2C%20preciso%20de%20orienta%C3%A7%C3%A3o%20em%20Direito%20de%20Fam%C3%ADlia."
+       target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.3-4.9-4.5-.1-.2-1.2-1.6-1.2-3 0-1.4.7-2.1 1-2.4.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.8 1.9.8 2 .1.1.1.3 0 .5-.1.2-.2.3-.3.5l-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.4.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.3.1.5.2.5.3.1.2.1.7-.1 1.4Z"/></svg>
+      Falar agora no WhatsApp
+    </a>
+  </section>
+
+  <footer>
+    <p><strong>Dra. Rayssa Rebouças</strong> — OAB/UF nº NUMERO_OAB</p>
+    <p>Este site tem caráter meramente informativo, em conformidade com o Código de Ética e Disciplina da OAB e o Provimento nº 205/2021.</p>
+  </footer>
+
+</body>
+</html>
