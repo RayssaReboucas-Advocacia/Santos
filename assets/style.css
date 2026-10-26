@@ -137,3 +137,9 @@ a { color: var(--navy); }
 .service-links a:hover { color: var(--gold); }
 .service-links a:hover::after { transform: translateX(3px); }
 .profile .card-more { text-decoration: none; }
+.profile-head { display: flex; align-items: center; gap: 18px; margin-bottom: 14px; }
+.profile-head .card-kicker { margin: 0 0 2px; }
+.profile-head .profile-oab { margin: 2px 0 0 !important; }
+.profile-photo { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; flex: none; border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--gold-light); }
+.profile-initials { display: flex; align-items: center; justify-content: center; background: var(--navy); color: var(--gold-light); font-family: var(--serif); font-size: 1.9rem; letter-spacing: 1px; }
+@media (max-width: 640px) { .profile-photo { width: 72px; height: 72px; } .profile-initials { font-size: 1.5rem; } }

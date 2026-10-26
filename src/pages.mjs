@@ -41,9 +41,14 @@ const cards = (list) => `
 // Resumo de cada advogada na home; cada serviço leva direto à página específica.
 const profile = (areaKey, id, summary) => `
   <article class="profile">
-    <p class="card-kicker">${areas[areaKey].name}</p>
-    <h3><a href="/sobre/#${id}">{{${id}.short}}</a></h3>
-    <p class="profile-oab">{{${id}.oab}}</p>
+    <div class="profile-head">
+      {{${id}.photoHtml}}
+      <div>
+        <p class="card-kicker">${areas[areaKey].name}</p>
+        <h3><a href="/sobre/#${id}">{{${id}.short}}</a></h3>
+        <p class="profile-oab">{{${id}.oab}}</p>
+      </div>
+    </div>
     <p>${summary}</p>
     <ul class="service-links">
       ${areas[areaKey].services.map((s) => `<li><a href="${s.path}">${s.name}</a></li>`).join('\n      ')}

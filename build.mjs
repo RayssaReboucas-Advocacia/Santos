@@ -29,13 +29,17 @@ const abs = (path) => site.url + path;
 const basePath = new URL(site.url).pathname.replace(/\/$/, ''); // ex.: "/Santos" no GitHub Pages de projeto
 const waHref = (text) => `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`;
 
-// Variáveis {{chave}} usadas no conteúdo. Valores terminados em "Link" já são HTML.
+// Variáveis {{chave}} usadas no conteúdo. Valores terminados em "Link" ou "Html" já são HTML.
 const vars = { privacyContact: site.email || `WhatsApp ${site.whatsappDisplay}`, updated };
+const initials = (name) => name.replace(/^Dra?\.\s*/, '').split(/\s+/).map((w) => w[0]).slice(0, 2).join('');
 for (const [id, l] of Object.entries(lawyers)) {
   for (const k of ['short', 'fullName', 'oab', 'area']) vars[`${id}.${k}`] = l[k];
   vars[`${id}.linkedinLink`] = l.linkedin ? ` · <a href="${l.linkedin}" target="_blank" rel="noopener">LinkedIn</a>` : '';
+  vars[`${id}.photoHtml`] = l.photo
+    ? `<img class="profile-photo" src="/assets/${l.photo}" alt="${esc(l.short)}" width="88" height="88" loading="lazy">`
+    : `<span class="profile-photo profile-initials" aria-hidden="true">${initials(l.short)}</span>`;
 }
-const fill = (html) => html.replace(/\{\{([\w.]+)\}\}/g, (_, k) => (k.endsWith('Link') ? vars[k] : esc(vars[k] ?? '')));
+const fill = (html) => html.replace(/\{\{([\w.]+)\}\}/g, (_, k) => (/(Link|Html)$/.test(k) ? vars[k] : esc(vars[k] ?? '')));
 
 const areaOf = (page) => (page.area ? areas[page.area] : null);
 const serviceArea = (path) => Object.values(areas).find((a) => a.services.some((s) => s.path === path));

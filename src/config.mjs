@@ -12,13 +12,15 @@ export const lawyers = {
     oab: 'OAB/SP nº 472.462',
     area: 'Direito de Família',
     linkedin: 'https://www.linkedin.com/in/rayssa-rebou%C3%A7as-949396167/',
+    photo: 'rayssa.jpg', // em src/assets/, quadrada (~320px); vazio = iniciais
   },
   graziella: {
     short: 'Dra. Graziella Matos',
     fullName: 'Graziella Matos',
     oab: 'OAB/SP nº 493.818',
     area: 'Direito Previdenciário',
-    linkedin: '', // TODO, opcional
+    linkedin: 'https://www.linkedin.com/in/graziella-matos-3b2719160/',
+    photo: 'graziella.jpg',
   },
 };
 
@@ -51,6 +53,7 @@ const todo = (s) => /000\.000|SOBRENOME|NOME COMPLETO|SEUDOMINIO/.test(s);
 export const placeholders = [
   ['OAB da Rayssa', () => todo(lawyers.rayssa.oab)],
   ['OAB da Graziella', () => todo(lawyers.graziella.fullName + lawyers.graziella.short + lawyers.graziella.oab + site.brand + site.logo.join())],
+  ['foto da Graziella', () => !lawyers.graziella.photo],
   ['url (domínio próprio)', () => todo(site.url) || /github.io/.test(site.url)],
   ['email', () => !site.email],
   ['instagram', () => !site.instagram],
