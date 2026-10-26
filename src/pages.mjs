@@ -6,6 +6,8 @@
 // h1, lead, wa (mensagem pré-preenchida), service (gera JSON-LD Service), body (HTML),
 // faq ([pergunta, resposta]). No body, {{rayssa.oab}}, {{graziella.fullName}} etc. vêm de config.
 
+import { site, lawyers } from './config.mjs';
+
 export const areas = {
   familia: {
     path: '/direito-de-familia/',
@@ -69,6 +71,27 @@ const steps = `
   <li><strong>Consulta.</strong> Online ou presencial, com hora marcada, com a advogada responsável pela área.</li>
   <li><strong>Proposta por escrito.</strong> Honorários e próximos passos combinados de forma clara antes de começar.</li>
 </ol>`;
+
+// Cartão de contato de cada advogada (página /contato/). PDF e .vcf são gerados por cards.mjs.
+const contactCard = (areaKey, wa) => {
+  const a = areas[areaKey];
+  const id = a.lawyer;
+  const l = lawyers[id];
+  const icon = (d) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${d}"/></svg>`;
+  return `
+      <article class="contact-card">
+        {{${id}.photoHtml}}
+        <h2>{{${id}.short}}</h2>
+        <p class="card-kicker">${a.name}</p>
+        <p class="profile-oab">{{${id}.oab}}</p>
+        <div class="contact-actions">
+          <a class="cbtn cbtn-wa" href="https://wa.me/${site.whatsapp}?text=${encodeURIComponent(wa)}" data-wa="${wa}" data-wa-location="contato" target="_blank" rel="noopener">${icon('M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z')}WhatsApp</a>
+          ${l.linkedin ? `<a class="cbtn cbtn-in" href="${l.linkedin}" target="_blank" rel="noopener" data-track="linkedin_click" data-lawyer="${id}">${icon('M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z')}LinkedIn</a>` : ''}
+          <a class="cbtn cbtn-out" href="/assets/cartao-${id}.pdf" download data-track="card_download" data-lawyer="${id}">${icon('M12 3v11m0 0-4-4m4 4 4-4M5 20h14')}Baixar cartão (PDF)</a>
+          <a class="cbtn cbtn-out" href="/assets/${id}.vcf" download data-track="vcard_download" data-lawyer="${id}">${icon('M16 11a4 4 0 1 0-8 0M4 20c0-3 3.6-5 8-5s8 2 8 5')}Salvar na agenda</a>
+        </div>
+      </article>`;
+};
 
 const waGeral = 'Olá. Gostaria de orientação jurídica.';
 const waFamilia = (assunto) => `Olá, Dra. Rayssa. Gostaria de orientação sobre ${assunto}.`;
@@ -541,6 +564,35 @@ export const pages = [
       <li>Busca de soluções consensuais sempre que forem possíveis</li>
     </ul>
     <p class="muted">Cada advogada atua de forma autônoma e é responsável pelos casos da sua área. Não se trata de sociedade de advogados.</p>
+  </div>
+</section>`,
+  },
+
+  {
+    path: '/contato/',
+    title: 'Contato e cartão de visita | Rayssa Rebouças e Graziella Matos',
+    description: 'Fale pelo WhatsApp, acesse o LinkedIn ou baixe o cartão de visita digital (PDF) das advogadas Rayssa Rebouças e Graziella Matos.',
+    h1: 'Contato',
+    lead: 'Fale direto pelo WhatsApp, conecte-se no LinkedIn ou baixe o cartão de visita digital de cada advogada para ter o contato sempre à mão.',
+    wa: waGeral,
+    noCta: true,
+    body: `
+<section class="section">
+  <div class="container">
+    <div class="contact-cards">
+      ${contactCard('familia', waFamilia('Direito de Família'))}
+      ${contactCard('previdencia', waPrev('Direito Previdenciário'))}
+    </div>
+  </div>
+</section>
+<section class="section section-alt">
+  <div class="container narrow">
+    <h2>Sobre o cartão digital</h2>
+    <ul class="check">
+      <li><strong>PDF:</strong> os botões do cartão são clicáveis e abrem o WhatsApp, o LinkedIn e o site. Dá para encaminhar o arquivo para quem precisar de orientação.</li>
+      <li><strong>Salvar na agenda:</strong> adiciona nome, telefone, site e foto direto nos contatos do celular.</li>
+      <li>Atendimento em ${site.cities.join(', ')}, online ou presencial com hora marcada.</li>
+    </ul>
   </div>
 </section>`,
   },

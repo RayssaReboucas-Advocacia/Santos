@@ -49,6 +49,13 @@
     return isAd ? base + '\n\n(Cód. ' + attr.ref + ')' : base;
   }
 
+  // Outros cliques medidos: LinkedIn, download do cartão em PDF e do contato (.vcf).
+  document.querySelectorAll('a[data-track]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      window.dataLayer.push({ event: a.getAttribute('data-track'), lawyer: a.getAttribute('data-lawyer'), page_type: cfg.pageType });
+    });
+  });
+
   document.querySelectorAll('a[data-wa]').forEach(function (a) {
     a.href = 'https://wa.me/' + cfg.whatsapp + '?text=' + encodeURIComponent(message(a.getAttribute('data-wa')));
     a.addEventListener('click', function () {

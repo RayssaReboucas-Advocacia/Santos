@@ -19,6 +19,7 @@ const nav = [
   ['/direito-previdenciario/', 'Previdenciário'],
   ['/praia-grande/', 'Praia Grande'],
   ['/sobre/', 'Sobre'],
+  ['/contato/', 'Contato'],
 ];
 
 const waIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.3-4.9-4.5-.1-.2-1.2-1.6-1.2-3 0-1.4.7-2.1 1-2.4.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.8 1.9.8 2 .1.1.1.3 0 .5-.1.2-.2.3-.3.5l-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.4.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.3.1.5.2.5.3.1.2.1.7-.1 1.4Z"/></svg>';
@@ -205,7 +206,7 @@ ${cta}
   ${footerLawyers}
   <p>Advogadas autônomas · Atendimento em ${site.cities.join(', ')} (SP)</p>
   <p>WhatsApp <a href="${waHref(page.wa)}" data-wa="${esc(page.wa)}" data-wa-location="rodape-texto" target="_blank" rel="noopener">${site.whatsappDisplay}</a>${site.email ? ` · <a href="mailto:${site.email}">${site.email}</a>` : ''}</p>
-  <p class="social">${site.instagram ? `<a href="${site.instagram}" target="_blank" rel="noopener">Instagram</a> · ` : ''}<a href="/sobre/">Sobre as advogadas</a> · <a href="/politica-de-privacidade/">Política de privacidade</a></p>
+  <p class="social">${site.instagram ? `<a href="${site.instagram}" target="_blank" rel="noopener">Instagram</a> · ` : ''}<a href="/sobre/">Sobre as advogadas</a> · <a href="/contato/">Contato e cartão digital</a> · <a href="/politica-de-privacidade/">Política de privacidade</a></p>
   <p class="disclaimer">Conteúdo de caráter informativo, conforme o Código de Ética e Disciplina da OAB e o Provimento nº 205/2021. Não substitui a consulta com advogado.</p>
 </div></footer>
 <a class="wa-float" href="${waHref(page.wa)}" data-wa="${esc(page.wa)}" data-wa-location="flutuante" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">${waIcon}</a>
@@ -259,7 +260,7 @@ function build() {
 build();
 
 if (process.argv[2] === 'serve') {
-  const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.xml': 'application/xml', '.txt': 'text/plain' };
+  const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.xml': 'application/xml', '.txt': 'text/plain', '.jpg': 'image/jpeg', '.pdf': 'application/pdf', '.vcf': 'text/vcard' };
   createServer((req, res) => {
     let p = join(root, decodeURIComponent(new URL(req.url, 'http://x').pathname));
     if (existsSync(p) && statSync(p).isDirectory()) p = join(p, 'index.html');

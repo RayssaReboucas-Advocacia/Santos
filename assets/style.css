@@ -143,3 +143,20 @@ a { color: var(--navy); }
 .profile-photo { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; flex: none; border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--gold-light); }
 .profile-initials { display: flex; align-items: center; justify-content: center; background: var(--navy); color: var(--gold-light); font-family: var(--serif); font-size: 1.9rem; letter-spacing: 1px; }
 @media (max-width: 640px) { .profile-photo { width: 72px; height: 72px; } .profile-initials { font-size: 1.5rem; } }
+
+/* Página de contato: cartões digitais */
+.contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; max-width: 860px; margin: 0 auto; }
+.contact-card { background: var(--navy); color: #fff; border-radius: 14px; padding: 32px 26px 26px; text-align: center; box-shadow: 0 10px 30px rgba(26, 42, 58, .18); }
+.contact-card .profile-photo { width: 112px; height: 112px; margin: 0 auto 16px; display: block; border-color: #fff; }
+.contact-card .profile-initials { display: flex; }
+.contact-card h2 { color: #fff; font-size: 1.5rem; margin: 0 0 4px; }
+.contact-card .card-kicker { color: var(--gold-light); margin: 0; }
+.contact-card .profile-oab { color: #c5ccd3; margin: 4px 0 22px !important; }
+.contact-actions { display: grid; gap: 10px; }
+.cbtn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 16px; border-radius: 10px; font-weight: 700; text-decoration: none; color: #fff; transition: filter .2s, transform .2s; }
+.cbtn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.cbtn svg { width: 20px; height: 20px; flex: none; fill: currentColor; }
+.cbtn-wa { background: var(--wa); }
+.cbtn-in { background: #0a66c2; }
+.cbtn-out { border: 1px solid var(--gold-light); color: #eadfc8; }
+.cbtn-out svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
