@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rayssareboucas-advocacia.github.io/Santos/sitemap.xml
