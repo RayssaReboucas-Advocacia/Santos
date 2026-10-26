@@ -511,6 +511,7 @@ export const pages = [
     <h2>{{rayssa.short}}</h2>
     <p class="muted">Direito de Família · {{rayssa.oab}}</p>
     <p><strong>{{rayssa.fullName}}</strong> atua em Direito de Família na Baixada Santista, em divórcio, pensão alimentícia, guarda, união estável e inventário.</p>
+    <p>Integrou a diretoria da Associação dos Advogados de Santos (AAS), como 2ª Secretária, na gestão 2024/2025.</p>
     <p>O trabalho é pautado na escuta atenta, no sigilo e na defesa técnica dos interesses de cada cliente. Questões de família envolvem pessoas, não só processos: cada história é tratada com a seriedade e o cuidado que merece.</p>
     <p><a href="/direito-de-familia/">Áreas atendidas</a>{{rayssa.linkedinLink}}</p>
   </div>
